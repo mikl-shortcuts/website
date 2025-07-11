@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>MIKL</title>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(180deg, #0A0A0C 0%, #1C1C1E 100%);
+            color: #FFF;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .logo {
+            font-size: 64px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            background: linear-gradient(45deg, #FFF, #A0A0A0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .tagline {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        header img {
+            height: 200px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        header img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: -80px;
+        }
+
+        .social-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .social-card img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .social-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .social-card h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0 0 12px;
+            color: #FFF;
+        }
+
+        .social-card p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+        }
+
+        .social-card a {
+            display: inline-block;
+            color: #2997FF;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            margin-top: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .social-card a:hover {
+            color: #40C4FF;
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 48px;
+            }
+
+            .tagline {
+                font-size: 16px;
+                padding: 0 20px;
+            }
+
+            header img {
+                height: 100px;
+            }
+
+            .social-card {
+                padding: 20px;
+            }
+
+            .social-card h2 {
+                font-size: 20px;
+            }
+
+            .social-card p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="margin-top: -80px;">
+        <header>
+            <img src="photoAccountMIKL.jpeg" alt="Logo">
+            <div class="logo"><b>MIKL</b></div>
+            <div class="tagline">
+                I am the creator of Apple Shortcuts, which are imbued with beautiful menus, functionality, convenience and made to high standards. Creator of such popular projects as Nuvole AI, AI Store and Trusty Trail. Join my Telegram Channel to stay updated with the latest projects and releases.
+            </div>
+        </header>
+        <div class="social-grid">
+            <div class="social-card">
+                <img src="photoChannelMIKL.JPEG" alt="Telegram Icon">
+                <div>
+                    <h2>MIKL's Channel</h2>
+                    <p>Follow the official MIKL Telegram Channel to receive news on my projects</p>
+                    <a href="https://t.me/mikl_channel" target="_blank">Join Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="social-grid" style="margin-top: 20px;">
+            <div class="social-card">
+                <img src="RoutineHub.PNG" alt="RoutineHub Icon">
+                <div>
+                    <h2>MIKL's RoutineHub</h2>
+                    <p>Explore and download incredible Shortcuts from MIKL</p>
+                    <a href="https://routinehub.co/user/__MIKL__" target="_blank">Explore Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
