@@ -519,7 +519,7 @@
     (async () => {
       const starsPromise = fetchGitHubStars();
       const reposPromise = fetchGitHubRepos();
-      const rhPromise = withTimeout(fetchRoutineHub(), 10000, null);
+      const rhPromise = withTimeout(fetchRoutineHub(), 7500, null);
 
       const [stars, ghRepos, rhData] = await Promise.all([starsPromise, reposPromise, rhPromise]);
 
