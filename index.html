@@ -437,33 +437,18 @@
     }
 
     async function fetchRoutineHub() {
-      const proxies = [
-        u => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`,
-        u => `https://corsproxy.io/?${encodeURIComponent(u)}`,
-        u => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`
-      ];
-      const target = 'https://routinehub.co/user/__MIKL__';
-      for (const proxy of proxies) {
-        try {
-          const res = await fetch(proxy(target));
-          if (!res.ok) continue;
-          const html = await res.text();
-          const doc = new DOMParser().parseFromString(html, 'text/html');
-          let downloads = null;
-          let shortcuts = null;
-          const p2 = doc.querySelector('.stats p:nth-of-type(2)');
-          if (p2) {
-            const m = p2.textContent.match(/(\d[\d,]*)/);
-            if (m) downloads = parseInt(m[1].replace(/,/g, ''), 10);
-          }
-          const p1 = doc.querySelector('.stats p:nth-of-type(1)');
-          if (p1) {
-            const m = p1.textContent.match(/(\d[\d,]*)/);
-            if (m) shortcuts = parseInt(m[1].replace(/,/g, ''), 10);
-          }
-          if (downloads !== null) return { downloads, shortcuts };
-        } catch (e) {}
-      }
+      try {
+        const res = await fetch('https://routinehub.co/user/__MIKL__');
+        if (!res.ok) return null;
+        const html = await res.text();
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        let downloads = null, shortcuts = null;
+        const p2 = doc.querySelector('.stats p:nth-of-type(2)');
+        if (p2) { const m = p2.textContent.match(/(\d[\d,]*)/); if (m) downloads = parseInt(m[1].replace(/,/g, ''), 10); }
+        const p1 = doc.querySelector('.stats p:nth-of-type(1)');
+        if (p1) { const m = p1.textContent.match(/(\d[\d,]*)/); if (m) shortcuts = parseInt(m[1].replace(/,/g, ''), 10); }
+        if (downloads !== null) return { downloads, shortcuts };
+      } catch (e) {}
       return null;
     }
 
