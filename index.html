@@ -1,194 +1,664 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="dark">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="I am the creator of Apple Shortcuts, which are imbued with beautiful menus, functionality, convenience and made to high standards. Also, I am passionate about APIs, Telegram and Discord bots, GitHub Workflows development.">
+    <meta property="og:title" content="MIKL">
+    <meta property="og:description" content="I am the creator of Apple Shortcuts, which are imbued with beautiful menus, functionality, convenience and made to high standards. Also, I am passionate about APIs, Telegram and Discord bots, GitHub Workflows development.">
+    <meta property="og:image" content="/assets/icon.png">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#000">
+    <link rel="icon" type="image/png" href="/assets/icon.png">
+    <link rel="apple-touch-icon" href="/assets/icon.png">
     <title>MIKL</title>
-    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(180deg, #0A0A0C 0%, #1C1C1E 100%);
-            color: #FFF;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        header {
-            text-align: center;
-            padding: 60px 0;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        .logo {
-            font-size: 64px;
-            font-weight: 900;
-            letter-spacing: -2px;
-            background: linear-gradient(45deg, #FFF, #A0A0A0);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-            margin-bottom: 20px;
-        }
-
-        .tagline {
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.7);
-            max-width: 600px;
-            margin: 0 auto 40px;
-            line-height: 1.6;
-        }
-
-        header img {
-            height: 200px;
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-
-        header img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin-top: -80px;
-        }
-
-        .social-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            border-radius: 24px;
-            padding: 24px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .social-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .social-card img {
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .social-card:hover img {
-            transform: scale(1.1);
-        }
-
-        .social-card h2 {
-            font-size: 24px;
-            font-weight: 600;
-            margin: 0 0 12px;
-            color: #FFF;
-        }
-
-        .social-card p {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.7);
-            margin: 0;
-        }
-
-        .social-card a {
-            display: inline-block;
-            color: #2997FF;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 16px;
-            margin-top: 12px;
-            transition: color 0.3s ease;
-        }
-
-        .social-card a:hover {
-            color: #40C4FF;
-            text-decoration: underline;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 48px;
-            }
-
-            .tagline {
-                font-size: 16px;
-                padding: 0 20px;
-            }
-
-            header img {
-                height: 100px;
-            }
-
-            .social-card {
-                padding: 20px;
-            }
-
-            .social-card h2 {
-                font-size: 20px;
-            }
-
-            .social-card p {
-                font-size: 14px;
-            }
-        }
-    </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+    html, body {
+      overscroll-behavior-x: none;
+    }
+    body {
+      background: #000;
+      color: #fff;
+      min-height: 100vh;
+      width: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .hero {
+      padding-top: 80px;
+      padding-bottom: 4px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 700;
+      background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.45) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+    .hero-desc {
+      text-align: center;
+      padding: 14px 24px 28px;
+      max-width: 460px;
+      margin: 0 auto;
+    }
+    .hero-desc p {
+      font-size: 16px;
+      color: #8e8e93;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      line-height: 1.65;
+    }
+    .hero-desc p + p {
+      margin-top: 12px;
+      color: #636366;
+      font-size: 14px;
+    }
+    .hero-desc em {
+      font-style: normal;
+      font-weight: 600;
+      background: linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.5) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-desc p + p em {
+      background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.35) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-desc .accent-sh {
+      background: linear-gradient(135deg, #c4606e 0%, #7b7eb8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-desc .accent-api {
+      background: linear-gradient(135deg, #4a9e5e 0%, #6db897 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-desc .accent-tg {
+      background: linear-gradient(135deg, #4a8fb8 0%, #6db0cc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-desc .accent-ds {
+      background: linear-gradient(135deg, #6b72b8 0%, #8b90cc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-desc .accent-gh {
+      background: linear-gradient(135deg, #b0b0b0 0%, #808082 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stats-section {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 28px 20px 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .stat-card {
+      background: rgba(28,28,30,0.6);
+      backdrop-filter: blur(40px) saturate(180%);
+      -webkit-backdrop-filter: blur(40px) saturate(180%);
+      border: 0.5px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 18px 14px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .stat-icon {
+      font-size: 18px;
+      margin-bottom: 2px;
+    }
+    .stat-value {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.6) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: #636366;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .section-title {
+      text-align: center;
+      padding: 48px 24px 32px;
+    }
+    .section-title h2 {
+      font-size: 34px;
+      font-weight: 700;
+      background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.5) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .projects-list {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .project-card {
+      background: rgba(28,28,30,0.6);
+      backdrop-filter: blur(40px) saturate(180%);
+      -webkit-backdrop-filter: blur(40px) saturate(180%);
+      border: 0.5px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 20px;
+    }
+    .project-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .project-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+      background: linear-gradient(160deg, color-mix(in srgb, var(--color) 35%, #1a1a1a) 0%, color-mix(in srgb, var(--color) 12%, #0a0a0a) 100%);
+    }
+    .project-icon i {
+      font-size: 22px;
+      color: var(--color);
+      filter: drop-shadow(0 2px 8px color-mix(in srgb, var(--color) 40%, transparent));
+    }
+    .project-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .project-icon.has-image {
+      background: none;
+    }
+    .project-title {
+      font-size: 19px;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .project-desc {
+      font-size: 14.5px;
+      color: #98989d;
+      line-height: 1.55;
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .project-actions.one-button .btn {
+      flex: 1 1 100%;
+    }
+    .project-actions.two-buttons .btn {
+      flex: 1 1 calc(50% - 4px);
+    }
+    .project-actions.three-buttons .btn {
+      flex: 1 1 calc(50% - 4px);
+    }
+    .project-actions.three-buttons .btn:nth-child(3) {
+      flex: 1 1 100%;
+    }
+    .btn {
+      height: 44px;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+      border: none;
+      cursor: pointer;
+      padding: 0 18px;
+      letter-spacing: -0.01em;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+      pointer-events: none;
+    }
+    .btn i {
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .btn .custom-icon {
+      width: 26px;
+      height: 26px;
+      font-size: 26px;
+      flex-shrink: 0;
+    }
+    .btn:hover {
+      transform: scale(1.03);
+      filter: brightness(1.12);
+    }
+    .btn:active {
+      transform: scale(0.97);
+      filter: brightness(0.9);
+    }
+    footer {
+      padding: 32px 0 50px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    footer a {
+      color: #3a3a3c;
+      font-size: 22px;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.04);
+    }
+    footer a .custom-icon {
+      width: 22px;
+      height: 22px;
+    }
+    footer a:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
+    .custom-icon {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      background-color: currentColor;
+      -webkit-mask-size: 100% 100%;
+      mask-size: 100% 100%;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      mask-position: center;
+    }
+    .icon-routinehub {
+      -webkit-mask-image: url('assets/routinehub.svg');
+      mask-image: url('assets/routinehub.svg');
+    }
+    .icon-shortcuty {
+      -webkit-mask-image: url('assets/shortcuty.svg');
+      mask-image: url('assets/shortcuty.svg');
+    }
+    .icon-routinehub-circle {
+      -webkit-mask-image: url('assets/routinehub-circle.svg');
+      mask-image: url('assets/routinehub-circle.svg');
+    }
+    .icon-shortcuty-circle {
+      -webkit-mask-image: url('assets/shortcuty-circle.svg');
+      mask-image: url('assets/shortcuty-circle.svg');
+    }
+    @media (max-width: 600px) {
+      .hero { padding-top: 60px; }
+      .hero h1 { font-size: 44px; }
+      .hero-desc { max-width: 360px; padding: 12px 20px 24px; }
+      .hero-desc p { font-size: 15px; }
+      .hero-desc p + p { font-size: 13px; }
+      .stats-section { padding: 24px 16px 0; }
+      .stat-card { padding: 14px 10px; border-radius: 14px; }
+      .stat-value { font-size: 22px; }
+      .stat-label { font-size: 11px; }
+      .stat-icon { font-size: 16px; }
+      .section-title { padding: 36px 24px 24px; }
+      .section-title h2 { font-size: 28px; }
+      .projects-list { padding: 0 16px 32px; gap: 14px; }
+      .project-card { padding: 16px; border-radius: 18px; }
+      .project-icon { width: 46px; height: 46px; border-radius: 12px; }
+      .project-icon i { font-size: 20px; }
+      .project-title { font-size: 17px; }
+      .project-desc { font-size: 13.5px; }
+      .btn { height: 42px; font-size: 13px; padding: 0 14px; }
+      .btn .custom-icon { width: 24px; height: 24px; }
+      footer { padding: 24px 0 40px; }
+      footer a { width: 44px; height: 44px; font-size: 20px; }
+      footer a .custom-icon { width: 20px; height: 20px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container" style="margin-top: -80px;">
-        <header>
-            <img src="photoAccountMIKL.jpeg" alt="Logo">
-            <div class="logo"><b>MIKL</b></div>
-            <div class="tagline">
-                I am the creator of Apple Shortcuts, which are imbued with beautiful menus, functionality, convenience and made to high standards. Creator of such popular projects as Nuvole AI, AI Store and Trusty Trail. Join my Telegram Channel to stay updated with the latest projects and releases.
-            </div>
-        </header>
-        <div class="social-grid">
-            <div class="social-card">
-                <img src="photoChannelMIKL.JPEG" alt="Telegram Icon">
-                <div>
-                    <h2>MIKL's Channel</h2>
-                    <p>Follow the official MIKL Telegram Channel to receive news on my projects</p>
-                    <a href="https://t.me/mikl_channel" target="_blank">Join Now</a>
-                </div>
-            </div>
+  <div class="hero reveal">
+    <h1>MIKL</h1>
+  </div>
+
+  <div class="hero-desc reveal">
+    <p>I am the creator of <em class="accent-sh">Apple Shortcuts</em>, which are imbued with beautiful menus, functionality, convenience and made to high standards.</p>
+    <p>Also, I am passionate about <em class="accent-api">APIs</em>, <em class="accent-tg">Telegram</em> and <em class="accent-ds">Discord</em> bots, <em class="accent-gh">GitHub Workflows</em> development.</p>
+  </div>
+
+  <div class="stats-section reveal">
+    <div class="stats-grid" id="statsGrid"></div>
+  </div>
+
+  <div class="section-title reveal">
+    <h2>Popular Projects</h2>
+  </div>
+
+  <div class="projects-list" id="projectsList"></div>
+
+  <footer class="reveal">
+    <a href="https://routinehub.co/user/__MIKL__"><span class="custom-icon icon-routinehub-circle"></span></a>
+    <a href="https://browse.shortcuty.app/user/__MIKL__"><span class="custom-icon icon-shortcuty-circle"></span></a>
+    <a href="https://github.com/mikl-shortcuts"><i class="fa-brands fa-github"></i></a>
+    <a href="https://t.me/mikl_channel"><i class="fa-brands fa-telegram"></i></a>
+  </footer>
+
+  <script>
+    function formatNum(n) {
+      if (n >= 1000) return Math.floor(n / 1000) + 'K+';
+      return String(n);
+    }
+
+    function animateValue(el, target, duration) {
+      if (target <= 0) { el.textContent = '0'; return; }
+      const start = performance.now();
+      function tick(now) {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = formatNum(Math.floor(eased * target));
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = formatNum(target);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    function withTimeout(promise, ms, fallback) {
+      return Promise.race([
+        promise,
+        new Promise(resolve => setTimeout(() => resolve(fallback), ms))
+      ]);
+    }
+
+    async function fetchRoutineHub() {
+      const proxies = [
+        u => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`,
+        u => `https://corsproxy.io/?${encodeURIComponent(u)}`,
+        u => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`
+      ];
+      const target = 'https://routinehub.co/user/__MIKL__';
+      for (const proxy of proxies) {
+        try {
+          const res = await fetch(proxy(target));
+          if (!res.ok) continue;
+          const html = await res.text();
+          const doc = new DOMParser().parseFromString(html, 'text/html');
+          let downloads = null;
+          let shortcuts = null;
+          const p2 = doc.querySelector('.stats p:nth-of-type(2)');
+          if (p2) {
+            const m = p2.textContent.match(/(\d[\d,]*)/);
+            if (m) downloads = parseInt(m[1].replace(/,/g, ''), 10);
+          }
+          const p1 = doc.querySelector('.stats p:nth-of-type(1)');
+          if (p1) {
+            const m = p1.textContent.match(/(\d[\d,]*)/);
+            if (m) shortcuts = parseInt(m[1].replace(/,/g, ''), 10);
+          }
+          if (downloads !== null) return { downloads, shortcuts };
+        } catch (e) {}
+      }
+      return null;
+    }
+
+    async function fetchGitHubStars() {
+      let total = 0;
+      try {
+        const r1 = await fetch('https://api.github.com/users/mikl-shortcuts/repos?per_page=100');
+        const d1 = await r1.json();
+        if (Array.isArray(d1)) d1.forEach(r => total += r.stargazers_count || 0);
+      } catch (e) {}
+      try {
+        const r2 = await fetch('https://api.github.com/repos/MIKLIUM/MIKLIUM');
+        const d2 = await r2.json();
+        if (d2 && d2.stargazers_count) total += d2.stargazers_count;
+      } catch (e) {}
+      return total || 9;
+    }
+
+    async function fetchGitHubRepos() {
+      let total = 0;
+      try {
+        const r1 = await fetch('https://api.github.com/users/mikl-shortcuts/repos?per_page=100');
+        const d1 = await r1.json();
+        if (Array.isArray(d1)) total += d1.length;
+      } catch (e) {}
+      try {
+        const r2 = await fetch('https://api.github.com/users/MIKLIUM/repos?per_page=100');
+        const d2 = await r2.json();
+        if (Array.isArray(d2)) total += d2.length;
+      } catch (e) {}
+      return Math.max(total - 1, 0);
+    }
+
+    const statsGrid = document.getElementById('statsGrid');
+
+    const statsDef = [
+      { icon: "fa-solid fa-download", label: "Downloads", color: "#0a84ff", id: "sv-0" },
+      { icon: "fa-solid fa-star", label: "GitHub Stars", color: "#ffd60a", id: "sv-1" },
+      { icon: "fa-solid fa-cube", label: "Projects", color: "#30d158", id: "sv-2" },
+    ];
+
+    statsDef.forEach(s => {
+      const card = document.createElement('div');
+      card.className = 'stat-card';
+      card.innerHTML = `
+        <div class="stat-icon" style="color:${s.color}"><i class="${s.icon}"></i></div>
+        <div class="stat-value" id="${s.id}">—</div>
+        <div class="stat-label">${s.label}</div>
+      `;
+      statsGrid.appendChild(card);
+    });
+
+    (async () => {
+      const starsPromise = fetchGitHubStars();
+      const reposPromise = fetchGitHubRepos();
+      const rhPromise = withTimeout(fetchRoutineHub(), 10000, null);
+
+      const [stars, ghRepos, rhData] = await Promise.all([starsPromise, reposPromise, rhPromise]);
+
+      let downloads, rhShortcuts;
+      if (rhData) {
+        downloads = rhData.downloads || 19100;
+        rhShortcuts = rhData.shortcuts || 7;
+      } else {
+        downloads = 19100;
+        rhShortcuts = 7;
+      }
+
+      const totalProjects = ghRepos + rhShortcuts;
+
+      animateValue(document.getElementById('sv-0'), downloads, 1500);
+      animateValue(document.getElementById('sv-1'), stars, 1500);
+      animateValue(document.getElementById('sv-2'), totalProjects, 1500);
+    })();
+
+    const projects = [
+      {
+        title: "Nuvole AI",
+        desc: "The most convenient and incredibly powerful AI shortcut without API keys or Apps.",
+        image: "assets/nuvole-ai.PNG",
+        color: "#88939c",
+        buttons: [
+          { label: "RoutineHub", icon: "custom-icon icon-routinehub", color: "rgba(50,8,49,0.9)", textColor: "#ee3534", href: "https://routinehub.co/shortcut/18431/" },
+          { label: "Shortcuty", icon: "custom-icon icon-shortcuty", color: "rgba(9,119,214,0.9)", textColor: "#ffffff", href: "https://browse.shortcuty.app/shortcut/92a36797-e4fb-4855-84d5-98dd1e30b7cb" }
+        ]
+      },
+      {
+        title: "Nuvole AI Lite",
+        desc: "The most convenient AI Shortcut without API keys or Apps. Simplified version of Nuvole AI.",
+        image: "assets/nuvole-ai-lite.PNG",
+        color: "#88939c",
+        buttons: [
+          { label: "RoutineHub", icon: "custom-icon icon-routinehub", color: "rgba(50,8,49,0.9)", textColor: "#ee3534", href: "https://routinehub.co/shortcut/18428/" },
+          { label: "Shortcuty", icon: "custom-icon icon-shortcuty", color: "rgba(9,119,214,0.9)", textColor: "#ffffff", href: "https://browse.shortcuty.app/shortcut/672834ed-752d-4ea7-9f3b-44d29f6ce18f" }
+        ]
+      },
+      {
+        title: "Trusty Trail",
+        desc: "Check the security of shortcuts with AI.",
+        image: "assets/trusty-trail.PNG",
+        color: "#fbbe2a",
+        buttons: [
+          { label: "RoutineHub", icon: "custom-icon icon-routinehub", color: "rgba(50,8,49,0.9)", textColor: "#ee3534", href: "https://routinehub.co/shortcut/21305/" }
+        ]
+      },
+      {
+        title: "Status Bar Cleaner",
+        desc: "Replace the status bar on your screenshots with a clean, minimalist version or remove it entirely.",
+        image: "assets/status-bar-cleaner.PNG",
+        color: "#00b5f7",
+        buttons: [
+          { label: "RoutineHub", icon: "custom-icon icon-routinehub", color: "rgba(50,8,49,0.9)", textColor: "#ee3534", href: "https://routinehub.co/shortcut/24254/" },
+          { label: "Shortcuty", icon: "custom-icon icon-shortcuty", color: "rgba(9,119,214,0.9)", textColor: "#ffffff", href: "https://browse.shortcuty.app/shortcut/7d6519f9-3bc3-4449-86c0-73c174d2cb6c" }
+        ]
+      },
+      {
+        title: "MIKLIUM API",
+        desc: "Great, free, high-quality APIs for everyone: Search, Shortcut Info, YouTube Transcript.",
+        image: "https://raw.githubusercontent.com/MIKLIUM/MIKLIUM/refs/heads/main/webpage/assets/Logo_Original.png",
+        color: "#004e97",
+        buttons: [
+          { label: "Website", icon: "fa-solid fa-globe", color: "rgba(0,78,151,0.5)", textColor: "rgba(255,255,255,0.9)", href: "https://miklium.github.io/MIKLIUM/" },
+          { label: "Discord", icon: "fa-brands fa-discord", color: "rgba(88,106,234,0.9)", textColor: "#fff", href: "https://discord.gg/d3txS4q8" },
+          { label: "GitHub", icon: "fa-brands fa-github", color: "rgba(255,255,255,0.08)", textColor: "rgba(255,255,255,0.8)", href: "https://github.com/MIKLIUM/MIKLIUM/" }
+        ]
+      },
+      {
+        title: "Pollinations Models List Updates",
+        desc: "Receive automatic notifications about changes in the list of models from Pollinations AI in Discord or Telegram.",
+        image: "https://raw.githubusercontent.com/mikl-shortcuts/Pollinations-Models-List-Updates/refs/heads/main/Logo.JPG",
+        color: "#fdf3ae",
+        buttons: [
+          { label: "Discord", icon: "fa-brands fa-discord", color: "rgba(88,106,234,0.9)", textColor: "#fff", href: "https://discord.gg/BjFa7gPrFw" },
+          { label: "Telegram", icon: "fa-brands fa-telegram", color: "rgba(48,165,221,0.9)", textColor: "#fff", href: "https://t.me/pollinations_models" },
+          { label: "GitHub", icon: "fa-brands fa-github", color: "rgba(255,255,255,0.08)", textColor: "rgba(255,255,255,0.8)", href: "https://github.com/mikl-shortcuts/Pollinations-Models-List-Updates/" }
+        ]
+      }
+    ];
+
+    const list = document.getElementById('projectsList');
+    projects.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'project-card reveal';
+      card.style.setProperty('--color', p.color);
+
+      const n = p.buttons.length;
+      const btnClass = n === 1 ? 'one-button' : n === 2 ? 'two-buttons' : n === 3 ? 'three-buttons' : '';
+
+      let btnsHtml = '';
+      p.buttons.forEach(b => {
+        const ic = b.icon.includes('custom-icon')
+          ? `<span class="${b.icon}"></span>`
+          : `<i class="${b.icon}"></i>`;
+        btnsHtml += `<a href="${b.href || '#'}" class="btn" style="background:${b.color};color:${b.textColor}">${ic}<span>${b.label}</span></a>`;
+      });
+
+      const iconHtml = p.image
+        ? `<div class="project-icon has-image"><img src="${p.image}" alt="${p.title}"></div>`
+        : `<div class="project-icon"><i class="${p.icon || ''}"></i></div>`;
+
+      card.innerHTML = `
+        <div class="project-header">
+          ${iconHtml}
+          <div class="project-title" style="background:linear-gradient(90deg, ${p.color} 0%, ${p.color} 25%, #ffffff 60%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">${p.title}</div>
         </div>
-        <div class="social-grid" style="margin-top: 20px;">
-            <div class="social-card">
-                <img src="RoutineHub.PNG" alt="RoutineHub Icon">
-                <div>
-                    <h2>MIKL's RoutineHub</h2>
-                    <p>Explore and download incredible Shortcuts from MIKL</p>
-                    <a href="https://routinehub.co/user/__MIKL__" target="_blank">Explore Now</a>
-                </div>
-            </div>
-        </div>
-    </div>
+        <div class="project-desc">${p.desc}</div>
+        <div class="project-actions ${btnClass}">${btnsHtml}</div>
+      `;
+
+      list.appendChild(card);
+    });
+
+    const STAGGER = 120;
+    let queue = [];
+    let timerRunning = false;
+
+    function processQueue() {
+      if (!queue.length) { timerRunning = false; return; }
+      queue.shift().classList.add('visible');
+      setTimeout(processQueue, STAGGER);
+    }
+
+    function enqueue(el) {
+      if (el.classList.contains('visible') || queue.includes(el)) return;
+      queue.push(el);
+      if (!timerRunning) { timerRunning = true; processQueue(); }
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { enqueue(e.target); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -5% 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
+</html>
